@@ -106,11 +106,7 @@ fun LibraryScreen(viewModel: SharpEmuViewModel) {
         )
 
         Box(modifier = Modifier.fillMaxSize()) {
-            AnimatedVisibility(
-                visible = isLoading,
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
+            if (isLoading) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -126,11 +122,7 @@ fun LibraryScreen(viewModel: SharpEmuViewModel) {
                 }
             }
 
-            AnimatedVisibility(
-                visible = !isLoading && games.isEmpty(),
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
+            if (!isLoading && games.isEmpty()) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -168,11 +160,7 @@ fun LibraryScreen(viewModel: SharpEmuViewModel) {
                 }
             }
 
-            AnimatedVisibility(
-                visible = !isLoading && games.isNotEmpty(),
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
+            if (!isLoading && games.isNotEmpty()) {
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 120.dp),
                     contentPadding = PaddingValues(16.dp),
