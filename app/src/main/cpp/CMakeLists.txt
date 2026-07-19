@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(FEX_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../../../../fex-emu)
+get_filename_component(FEX_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../fex-emu" REALPATH)
 
 add_compile_options(-fno-strict-aliasing -fno-exceptions)
 
