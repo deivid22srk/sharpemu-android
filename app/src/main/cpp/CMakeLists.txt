@@ -10,7 +10,29 @@ set(FEX_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../../../../fex-emu)
 add_compile_options(-fno-strict-aliasing -fno-exceptions)
 
 set(ARCHITECTURE_arm64 1)
+set(BUILD_TESTING OFF)
+set(ENABLE_LTO OFF)
+set(ENABLE_FEX_ALLOCATOR OFF)
+set(ENABLE_JEMALLOC_GLIBC_ALLOC OFF)
+set(BUILD_FEXCONFIG OFF)
+set(BUILD_THUNKS OFF)
+set(BUILD_FEX_LINUX_TESTS OFF)
+set(ENABLE_GDB_SYMBOLS OFF)
+set(ENABLE_OFFLINE_TELEMETRY OFF)
+set(ENABLE_FEXCORE_PROFILER OFF)
+set(BUILD_STEAM_SUPPORT OFF)
 
+list(APPEND CMAKE_MODULE_PATH "${FEX_ROOT}/Data/CMake")
+
+include(LinkerGC)
+
+add_subdirectory(${FEX_ROOT}/External/fmt ${CMAKE_BINARY_DIR}/fmt)
+add_subdirectory(${FEX_ROOT}/External/xxhash/cmake_unofficial ${CMAKE_BINARY_DIR}/xxhash)
+add_subdirectory(${FEX_ROOT}/External/unordered_dense ${CMAKE_BINARY_DIR}/unordered_dense)
+add_subdirectory(${FEX_ROOT}/External/vixl ${CMAKE_BINARY_DIR}/vixl)
+add_subdirectory(${FEX_ROOT}/External/cephes ${CMAKE_BINARY_DIR}/cephes)
+add_subdirectory(${FEX_ROOT}/FEXHeaderUtils ${CMAKE_BINARY_DIR}/FEXHeaderUtils)
+add_subdirectory(${FEX_ROOT}/CodeEmitter ${CMAKE_BINARY_DIR}/CodeEmitter)
 add_subdirectory(${FEX_ROOT}/FEXCore ${CMAKE_BINARY_DIR}/FEXCore)
 
 add_library(sharpemu_native SHARED
