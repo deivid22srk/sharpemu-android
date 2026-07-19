@@ -1,0 +1,2 @@
+-keep class com.sharpemu.android.** { *; }
+-dontwarn kotlinx.**
