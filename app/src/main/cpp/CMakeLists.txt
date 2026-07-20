@@ -29,7 +29,7 @@ list(APPEND CMAKE_MODULE_PATH "${FEX_ROOT}/Data/CMake")
 include(LinkerGC)
 
 add_subdirectory(${FEX_ROOT}/External/fmt ${CMAKE_BINARY_DIR}/fmt)
-add_subdirectory(${FEX_ROOT}/External/xxhash/cmake_unofficial ${CMAKE_BINARY_DIR}/xxhash)
+add_subdirectory(${FEX_ROOT}/External/xxhash ${CMAKE_BINARY_DIR}/xxhash)
 add_subdirectory(${FEX_ROOT}/External/unordered_dense ${CMAKE_BINARY_DIR}/unordered_dense)
 add_subdirectory(${FEX_ROOT}/External/vixl ${CMAKE_BINARY_DIR}/vixl)
 add_subdirectory(${FEX_ROOT}/External/cephes ${CMAKE_BINARY_DIR}/cephes)
